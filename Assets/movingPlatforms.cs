@@ -46,6 +46,29 @@ public class MovingPlatforms : MonoBehaviour
         }
     }
 
+    // Ensure player becomes a child of the platform on collision
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+            Debug.Log("It collided");
+        {
+            col.gameObject.transform.SetParent(platform.transform, true);
+            Debug.Log("It tried to move");
+        }
+    }
+
+    // Ensure player stops following the platform when exiting collision
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            if (col.gameObject.transform.parent == platform.transform)
+            {
+                col.gameObject.transform.SetParent(null, true);
+            }
+        }
+    }
+
     // End of Additional Code
 }
 
