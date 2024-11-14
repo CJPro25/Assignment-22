@@ -10,7 +10,7 @@ public class PlayerWalk : MonoBehaviour
     private bool isFacingRight = true;  // Track whether the player is facing right
     private bool isGrounded;            // Check if the player is grounded
     private bool canDoubleJump;         // Check if the player can double jump
-    private bool isJumping;             // Check if the player is currently jumping
+    //private bool isJumping;             // Check if the player is currently jumping
 
     private Transform groundCheck;      // Ground check position
     public float groundCheckRadius = 0.2f; // Radius for checking ground
@@ -56,15 +56,16 @@ public class PlayerWalk : MonoBehaviour
             }
         }
 
-        // Control the animation based on whether the player is jumping or not
+        /* Control the animation based on whether the player is jumping or not
         if (!isGrounded)
         {
-            isJumping = true;
+            bool isJumping = true;
         }
         else
         {
-            isJumping = false;
+            bool isJumping = false;
         }
+        */
 
         /* Update the Animator
         animator.SetBool("isJumping", isJumping); // Set jumping state
